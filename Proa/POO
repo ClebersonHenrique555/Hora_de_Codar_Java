@@ -1,1 +1,80 @@
+public class Elevador{
+    
+    public int AndarAtual;
+    private int TotalAndares;
+    public int CapacidadeDoElevador;
+    public int PessoasPresentesNoElevador;
+
+    public void entra(int QuantidadePessoasEntraram) { 
+        int z = this.PessoasPresentesNoElevador + QuantidadePessoasEntraram;
+        if(z<=CapacidadeDoElevador){
+            System.out.println("Pode entrar, pessoas presentes no Elevador: " + (z));
+        }else{
+            System.out.println("O Elevador está em sua capacidade máxima, por favor, para a segurança de todos pegue o próximo!");
+        } 
+    }  
+
+    public void sai(int QuantidadePessoasSairam){
+        int y = this.PessoasPresentesNoElevador - QuantidadePessoasSairam;
+        if(y>=0){
+            System.out.println("Uma pessoa saiu do Elevador. Pessoas presentes no Elevador: " + (y));
+        }else{
+            System.out.println("Não tem ninguem no Elevador");
+        }
+    }
+
+    public void sobe(int quantidade){
+        int x = this.AndarAtual + quantidade;
+        if(x<this.TotalAndares){
+            System.out.println("Você subiu. Andar Atual: " + (this.AndarAtual += quantidade));
+        }else{
+        System.out.println("Nesse prédio só temos até o andar: " + this.TotalAndares);
+        }
+    }
+
+    public void desce(int quantidade){
+        if(this.AndarAtual>0){
+            System.out.println("Você desceu. Andar Atual: " + (this.AndarAtual -= quantidade));
+        }else{
+            System.out.println("Você está no térreo");
+        }
+    }
+
+public static void main( String[] args ) {
+    Elevador ElevadoresDaEntrada = new Elevador();
+    ElevadoresDaEntrada.AndarAtual = 5;
+    ElevadoresDaEntrada.TotalAndares = 8;
+    ElevadoresDaEntrada.CapacidadeDoElevador = 25;
+    ElevadoresDaEntrada.PessoasPresentesNoElevador = 15;
+    ElevadoresDaEntrada.sobe(1);
+    ElevadoresDaEntrada.desce(2);
+    ElevadoresDaEntrada.sai(5);
+    ElevadoresDaEntrada.entra(11);
+    
+    System.out.println("|||||||||||||||");
+
+    Elevador Atrio = new Elevador();
+    Atrio.AndarAtual = 5;
+    Atrio.TotalAndares = 8;
+    Atrio.CapacidadeDoElevador = 25;
+    Atrio.PessoasPresentesNoElevador = 15;
+    Atrio.sobe(1);
+    Atrio.desce(2);
+    Atrio.sai(5);
+    Atrio.entra(11);
+
+    System.out.println("|||||||||||||||");
+
+    Elevador Biblioteca = new Elevador();
+    Atrio.AndarAtual = 1;
+    Atrio.TotalAndares = 5;
+    Atrio.CapacidadeDoElevador = 25;
+    Atrio.PessoasPresentesNoElevador = 15;
+    Atrio.sobe(8);
+    Atrio.desce(2);
+    Atrio.sai(2);
+    Atrio.entra(7);
+    }
+}
+
 
